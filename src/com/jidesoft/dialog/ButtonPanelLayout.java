@@ -187,7 +187,6 @@ class ButtonPanelLayout implements LayoutManager2, Serializable {
      *
      * @param target the container that needs to be laid out
      * @return the dimensions >= 0 && <= Integer.MAX_VALUE
-     *
      * @throws java.awt.AWTError if the target isn't the container specified to the BoxLayout constructor
      * @see java.awt.Container
      * @see #minimumLayoutSize
@@ -218,7 +217,6 @@ class ButtonPanelLayout implements LayoutManager2, Serializable {
      *
      * @param target the container that needs to be laid out
      * @return the dimensions >= 0 && <= Integer.MAX_VALUE
-     *
      * @throws java.awt.AWTError if the target isn't the container specified to the BoxLayout constructor
      * @see #preferredLayoutSize
      * @see #maximumLayoutSize
@@ -255,7 +253,6 @@ class ButtonPanelLayout implements LayoutManager2, Serializable {
      *
      * @param target the container that needs to be laid out
      * @return the dimensions >= 0 && <= Integer.MAX_VALUE
-     *
      * @throws java.awt.AWTError if the target isn't the container specified to the BoxLayout constructor
      * @see #preferredLayoutSize
      * @see #minimumLayoutSize
@@ -293,7 +290,6 @@ class ButtonPanelLayout implements LayoutManager2, Serializable {
      *
      * @param target the container
      * @return the alignment >= 0.0f && <= 1.0f
-     *
      * @throws java.awt.AWTError if the target isn't the container specified to the BoxLayout constructor
      */
     public synchronized float getLayoutAlignmentX(Container target) {
@@ -308,7 +304,6 @@ class ButtonPanelLayout implements LayoutManager2, Serializable {
      *
      * @param target the container
      * @return the alignment >= 0.0f && <= 1.0f
-     *
      * @throws java.awt.AWTError if the target isn't the container specified to the BoxLayout constructor
      */
     public synchronized float getLayoutAlignmentY(Container target) {
@@ -688,6 +683,7 @@ class ButtonPanelLayout implements LayoutManager2, Serializable {
             // The requests have been invalidated... recalculate
             // the request information.
             int componentCount = _target.getComponentCount();
+
             int visibleComponentCount = componentCount;
             for (int i = 0; i < componentCount; i++) {
                 if (!_target.getComponent(i).isVisible()) {

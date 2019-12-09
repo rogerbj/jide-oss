@@ -118,9 +118,9 @@ public class JideToggleSplitButton extends JideSplitButton implements Accessible
         if (selected != isSelected()) {
             // This won't notify ActionListeners, but that should be
             // ok as the change is coming from the Action.
-            setSelected(selected);
+            setButtonSelected(selected);
             // Make sure the change actually took effect
-            if (!selected && isSelected()) {
+            if (!selected && isButtonSelected()) {
                 if (getModel() instanceof DefaultButtonModel) {
                     ButtonGroup group = (ButtonGroup)
                             ((DefaultButtonModel) getModel()).getGroup();
@@ -157,10 +157,10 @@ public class JideToggleSplitButton extends JideSplitButton implements Accessible
     private void updateSelectedKey() {
         if (shouldUpdateSelectedStateFromAction()) {
             Action action = getAction();
-            if (action != null && action.getValue(Action.SELECTED_KEY) != null) {
-                boolean selected = isSelected();
-                boolean isActionSelected = Boolean.TRUE.equals(action.getValue(Action.SELECTED_KEY));
-                if (isActionSelected != selected) {
+            if (action != null) {
+                boolean selected = isButtonSelected();
+                Object existingKey = action.getValue(Action.SELECTED_KEY);
+                if (existingKey == null || Boolean.TRUE.equals(existingKey) != selected) {
                     action.putValue(Action.SELECTED_KEY, selected);
                 }
             }

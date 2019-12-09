@@ -7,11 +7,11 @@
 package com.jidesoft.plaf.basic;
 
 import com.jidesoft.icons.IconsFactory;
+import com.jidesoft.plaf.LookAndFeelFactory;
 import com.jidesoft.plaf.UIDefaultsLookup;
 import com.jidesoft.plaf.vsnet.VsnetMenuUI;
 import com.jidesoft.swing.*;
 import com.jidesoft.utils.SecurityUtils;
-import com.sun.java.swing.plaf.windows.WindowsLookAndFeel;
 
 import javax.swing.*;
 import javax.swing.event.MouseInputListener;
@@ -957,7 +957,7 @@ public class BasicJideSplitButtonUI extends VsnetMenuUI {
         // Note: This method is almost identical to the same method in WindowsMenuItemUI
         ButtonModel model = menuItem.getModel();
 
-        FontMetrics fm = g.getFontMetrics();
+        FontMetrics fm = menuItem.getFontMetrics(menuItem.getFont());
         if (!(menuItem instanceof JMenu) || !((JMenu) menuItem).isTopLevelMenu()) {
             int defaultTextIconGap = UIDefaultsLookup.getInt("MenuItem.textIconGap");
             int defaultShadowWidth = UIDefaultsLookup.getInt("MenuItem.shadowWidth");
@@ -979,7 +979,7 @@ public class BasicJideSplitButtonUI extends VsnetMenuUI {
 
         int mnemonicIndex = menuItem.getDisplayedMnemonicIndex();
         // W2K Feature: Check to see if the Underscore should be rendered.
-        if (WindowsLookAndFeel.isMnemonicHidden()) {
+        if (LookAndFeelFactory.isMnemonicHidden()) {
             mnemonicIndex = -1;
         }
 
